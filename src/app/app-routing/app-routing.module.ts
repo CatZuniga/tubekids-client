@@ -6,6 +6,7 @@ import { RegisterComponent } from '../register/register.component';
 import { VideosComponent } from '../videos/videos.component';
 import { ProfilesComponent } from '../profiles/profiles.component';
 import { VideoskidComponent } from '../videoskid/videoskid.component';
+import { EmailVerificationComponent } from '../email-verification/email-verification.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   {
     path: 'videoskid', component: VideoskidComponent
   },
-
+  {
+    path: 'email_verification/:code', component: EmailVerificationComponent 
+  }
 ];
 
 @NgModule({
