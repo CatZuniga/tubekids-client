@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../_lib/user';
 import { UserService } from '../_services/user.service';
-
+import { ProfileService } from '../_services/profile.service';
+import { Profile } from '../_lib/profile';
 import { FormBuilder, FormGroup, Validators, AbstractControl, NgForm, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -14,7 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   user: User;
-
+  profile: Profile;
 
   logFormAdmin: FormGroup;
   logFormKid: FormGroup;
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-
+    private profileService: ProfileService,
     private formBuilder: FormBuilder,
     private router: Router) { }
 
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
           data = JSON.parse(data);
           console.log
 
+          // verificate if acc is activated
           if (data["data"].state) {
             this.router.navigate(["/videos"]);
             // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -79,6 +81,22 @@ export class LoginComponent implements OnInit {
   }
 
   //LOGIN AS Kid
+  logKid(): void {
+    let username = this.logFormKid.get("username").value;
+    let pin = this.logFormKid.get("pin").value;
 
+    this.profileService.login(username, pin)
+      .subscribe(
+        data => {
+          console.log(data);
+            this.router.navigate(["/videoskid"]);
+          
+        }, (err) => {
+          console.log(err);
+          this.msg = "USERNAME OR PIN INVALID";
+          this.router.navigate(["/login"]);
+        });
+
+  }
 
 }
