@@ -1,0 +1,125 @@
+<div class="row">
+
+  <div class=" col s12 m5 offset-m4">
+    <div>
+
+      <ul id="" >
+        <li class="tab col s3">
+          <a  (click)="selected = 'admin'">Login </a>
+        </li>
+        <li class="tab col s3">
+          <a (click)=" selected = 'kid'">Login Kid</a>
+        </li>
+
+      </ul>
+      <div class="">
+          <span class="red-text text-darken-2">{{msg}}</span>
+        </div>
+    
+        <div *ngIf="selected == 'admin'"  class="col s12 ">
+        <h4>Sign in</h4>
+        <div class="row center-align">
+          <form [formGroup]="logFormAdmin" (ngSubmit)="logAdmin()">
+
+
+            <div class="input-field">
+              <label>
+                <i class="material-icons left">email</i>Email</label>
+              <input class="form-control " formControlName="email" type="email">
+            </div>
+            <div *ngIf="logFormAdmin.controls['email'].invalid && (logFormAdmin.controls['email'].dirty || logFormAdmin.controls['email'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="logFormAdmin.controls['email'].errors.required">
+                Email is required.
+              </div>
+            </div>
+
+
+            <div class="input-field">
+              <label>
+                <i class="material-icons left">lock</i>Password</label>
+              <input class="form-control" formControlName="password" type="password">
+            </div>
+            <div *ngIf="logFormAdmin.controls['password'].invalid && (logFormAdmin.controls['password'].dirty || logFormAdmin.controls['password'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="logFormAdmin.controls['password'].errors.required">
+                Password is required.
+              </div>
+            </div>
+
+            <div class="row">
+              <button type="submit" [disabled]="logFormAdmin.pristine || logFormAdmin.invalid" class="col m10 offset-m1 btn btn-success modal-close">
+                LOGIN
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+   
+      <div  *ngIf="selected =='kid'" class="col s12 ">
+        <h4>Sign in</h4>
+        <div class="row center-align">
+          <form [formGroup]="logFormKid" (ngSubmit)="logKid()">
+
+            <div class="input-field">
+              <label>
+                <i class="material-icons left">person</i>Username</label>
+              <input class="form-control " formControlName="username" type="text">
+            </div>
+            <div *ngIf="logFormKid.controls['username'].invalid && (logFormKid.controls['username'].dirty || logFormKid.controls['username'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="logFormKid.controls['username'].errors.required">
+                Username is required.
+              </div>
+            </div>
+
+
+            <div class="input-field">
+              <label>
+                <i class="material-icons left">lock</i>PIN</label>
+              <input class="form-control" formControlName="pin" type="password">
+            </div>
+            <div *ngIf="logFormKid.controls['pin'].invalid && (logFormKid.controls['pin'].dirty || logFormKid.controls['pin'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="logFormKid.controls['pin'].errors.required">
+                PIN is required.
+              </div>
+            </div>
+
+            <div class="row">
+              <button type="submit" [disabled]="logFormKid.pristine || logFormKid.invalid" class="col m10 offset-m1 btn btn-success modal-close">
+                LOGIN
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!--
+<ul id="tabs-swipe-demo" class="tabs" role="tablist">
+
+    <li [ngClass]="{firstItem: first}" role="presentation" class="accounts_li" [class.active]="selectedwallet==='admin'">
+      <a (click)="selectedwallet = 'admin'" aria-controls="one" role="tab" data-toggle="tab">---</a>
+    </li>
+
+      <li [ngClass]="{firstItem: first}" role="presentation" class="accounts_li" [class.active]="selectedwallet==='kid'">
+      <a (click)="selectedwallet = 'kid'" aria-controls="one" role="tab" data-toggle="tab">KID</a>
+    </li>
+  
+  <li [ngClass]="{firstItem: first}" role="presentation" class="accounts_li" [class.active]="selectedwallet==='a'">
+  <a (click)="selectedwallet = 'a'" aria-controls="one" role="tab" data-toggle="tab">a</a>
+</li>
+
+  </ul>
+  
+  <div class="tab-content">
+    <div *ngIf="selectedwallet === 'admin'" role="tabpanel" class="tab-pane active" id="one">wallet 1 content</div>
+    <div *ngIf="selectedwallet === 'kid'" role="tabpanel" class="tab-pane active" id="two">wallet 2 content</div>
+    <div *ngIf="selectedwallet === 'a'" role="tabpanel" class="tab-pane active" id="two">wallet s content</div>
+  </div>
+-->
