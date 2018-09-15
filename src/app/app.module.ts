@@ -12,7 +12,9 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { VideoskidComponent } from './videoskid/videoskid.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {FormsModule} from '@angular/forms';
+
 import { YoutubePlayerModule } from 'ngx-youtube-player';
+import { EmailVerificationComponent } from './email-verification/email-verification.component';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { YoutubePlayerModule } from 'ngx-youtube-player';
     VideosComponent,
     ProfilesComponent,
     VideoskidComponent,
-
+    EmailVerificationComponent,
+   
   ],
   imports: [
     BrowserModule,

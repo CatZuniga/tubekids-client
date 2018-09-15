@@ -26,7 +26,7 @@ const routes: Routes = [
     data: { expectedRole: 'guest' }
   },
   {
-    path: 'email_verificacion/:code', component: EmailVerificationComponent 
+    path: 'email_verification/:code', component: EmailVerificationComponent 
   }
 
 ];
