@@ -7,7 +7,7 @@ import { RegisterComponent } from '../register/register.component';
 import { VideosComponent } from '../videos/videos.component';
 import { ProfilesComponent } from '../profiles/profiles.component';
 import { VideoskidComponent } from '../videoskid/videoskid.component';
-import { EmailVerificacionComponent } from '../email-verificacion/email-verificacion.component';
+import { EmailVerificationComponent } from '../email-verification/email-verification.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +26,7 @@ const routes: Routes = [
     data: { expectedRole: 'guest' }
   },
   {
-    path: 'email_verificacion/:code', component: EmailVerificacionComponent 
+    path: 'email_verificacion/:code', component: EmailVerificationComponent 
   }
 
 ];
