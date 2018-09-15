@@ -63,7 +63,6 @@ export class LoginComponent implements OnInit {
           data = JSON.parse(data);
           console.log
 
-          // verificate if acc is activated
           if (data["data"].state) {
             this.router.navigate(["/videos"]);
             // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -89,8 +88,12 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+
+          setTimeout(() => {
             this.router.navigate(["/videoskid"]);
+          }, 4000);
           
+        
         }, (err) => {
           console.log(err);
           this.msg = "USERNAME OR PIN INVALID";
