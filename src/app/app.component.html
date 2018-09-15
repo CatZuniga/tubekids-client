@@ -3,7 +3,26 @@
         <div class="nav-wrapper  black">
             <a href="#" class="brand-logo">TUBEKIDS</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-          
+                <li>
+                    <a *ngIf="logged && admin" routerLink="/videos">
+                        DASHBOARD</a>
+                </li>
+                <li>
+                    <a *ngIf="logged && !admin" routerLink="/videoskid">
+                        VIDEOS</a>
+                </li>
+                <li *ngIf="logged">
+                    <a class="  waves-effect waves-light blue " (click)="logout()">
+                        LOGOUT </a>
+                </li>
+                <li>
+                    <a *ngIf="!logged" routerLink="/login">
+                        LOGIN</a>
+                </li>
+                <li>
+                    <a *ngIf="!logged" routerLink="/register">
+                        REGISTER</a>
+                </li>
             </ul>
         </div>
     </nav>

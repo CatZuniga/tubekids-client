@@ -9,12 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { VideosComponent } from './videos/videos.component';
 import { ProfilesComponent } from './profiles/profiles.component';
-
+import { VideoskidComponent } from './videoskid/videoskid.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {FormsModule} from '@angular/forms';
-
 import { YoutubePlayerModule } from 'ngx-youtube-player';
-
 
 
 @NgModule({
@@ -25,8 +23,8 @@ import { YoutubePlayerModule } from 'ngx-youtube-player';
     RegisterComponent,
     VideosComponent,
     ProfilesComponent,
-  
-   
+    VideoskidComponent,
+
   ],
   imports: [
     BrowserModule,
